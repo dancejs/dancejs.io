@@ -1,3 +1,34 @@
-#spacer {
-  height: 300px;
+#background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  float: top;
+  height: 100%;
+  width: 100%;
+}
+
+#logo {
+  background-image: url('../images/logo-white.svg');
+  background-color: white;
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 60px;
+  height: 85px;
+  width: 250px;
+  padding-left: 110px;
+  padding-top: 13px;
+}
+
+#logo .large-title {
+  font-size: 32px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#logo .date {
+  font-size: 16px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-left: 2px;
+  margin-top: 2px;
 }
