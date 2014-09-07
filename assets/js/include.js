@@ -9,10 +9,6 @@ var skrollr = require('skrollr'),
 
 module.exports = function(opts) {
   $(document).ready(function() {
-  /*  $('#photos').masonry({
-      columnWidth: 200,
-      itemSelector: '.item'
-    });*/
     skrollr.init();
   });
 };

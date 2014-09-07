@@ -5,8 +5,7 @@
   "main": "./lib/index.js",
   "browser": "./lib/browser.js",
   "scripts": {
-    "baanan": "| uglifyjs",
-    "prestart": "./node_modules/.bin/browserify assets/js/*.js > assets/js/include.js"
+    "prestart": "./node_modules/.bin/browserify assets/js/*.js > assets/js/include.js | uglifyjs"
   },
   "repository": {
     "type": "git",
