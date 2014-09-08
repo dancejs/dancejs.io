@@ -27,7 +27,6 @@
     "browserify": "^5.11.1",
     "jquery": "^2.1.1",
     "restify": "^2.8.2",
-    "skrollr": "^0.6.26",
     "uglify-js": "^2.4.15"
   }
 }
