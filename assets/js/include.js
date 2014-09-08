@@ -11,7 +11,7 @@ module.exports = function(opts) {
     $('#bottom-info').show();
 
     // nifty parallax scrolling lib.
-    skrollr.init();
+    //skrollr.init();
 
     // code of conduct message.
     $('#conduct').click(function() {
