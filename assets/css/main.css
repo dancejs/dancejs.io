@@ -1,4 +1,10 @@
+body {
+  background-color: black;
+  height: 100px;
+}
+
 #background {
+  background-image:url(../images/ravejs-background.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -11,14 +17,15 @@
 #logo {
   background-image: url('../images/logo-white.svg');
   background-color: white;
-  background-size: 100px 100px;
+  background-size: 115px 115px;
   background-repeat: no-repeat;
   position: relative;
   top: 60px;
-  height: 85px;
+  height: 100px;
   width: 250px;
-  padding-left: 110px;
-  padding-top: 13px;
+  padding-left: 120px;
+  padding-top: 8px;
+  margin-left: -5px;
 }
 
 #logo .large-title {
@@ -31,4 +38,39 @@
   font-family: 'Open Sans Condensed', sans-serif;
   margin-left: 2px;
   margin-top: 2px;
+}
+
+#logo .tickets {
+  font-size: 18px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-left: 2px;
+  margin-top: 6px;
+}
+
+#mission {
+  background-color: black;
+  height: 150px;
+  position: relative;
+  top: 600px;
+}
+
+#bottom-info {
+  background-color: white;
+  margin: -250px;
+  height: 550px;
+}
+
+blockquote {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 24px;
+  color: white;
+  width: 650px;
+  padding: 5px;
+  margin: auto;
+}
+
+.js-masonry {
+  padding-top: 40px;
+  width: 500px;
+  margin: auto;
 }
