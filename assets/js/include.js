@@ -3,24 +3,40 @@ require('../../lib/browser')({});
 
 },{"../../lib/browser":2}],2:[function(require,module,exports){
 var skrollr = require('skrollr'),
-  $ = jquery = require('jquery');
+  $ = require('jquery');
 
 module.exports = function(opts) {
-  // nifty parallax scrolling lib.
   $(document).ready(function() {
+    // hide profile pics until layout complete.
     $('#bottom-info').show();
-    skrollr.init();
-  });
 
-  // hover effect on profile pics.
-  $('.item').hover(
-    function() {
-      $(this).children('.profile').show();
-    },
-    function() {
-      $(this).children('.profile').hide();
-    }
-  )
+    // nifty parallax scrolling lib.
+    skrollr.init();
+
+    // code of conduct message.
+    $('#conduct').click(function() {
+      vex.dialog.confirm({
+        message: $('#conduct-content').html()
+      });
+    });
+
+    // list of sponsors.
+    $('#sponsors').click(function() {
+      vex.dialog.confirm({
+        message: $('#sponsors-content').html()
+      });
+    });
+
+    // hover effect on profile pics.
+    $('.item').hover(
+      function() {
+        $(this).children('.profile').show();
+      },
+      function() {
+        $(this).children('.profile').hide();
+      }
+    );
+  });
 };
 
 },{"jquery":3,"skrollr":4}],3:[function(require,module,exports){
