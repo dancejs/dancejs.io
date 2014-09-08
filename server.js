@@ -1,13 +1,7 @@
-// lightweight web-server using Restify. Implements
-// a typeahead search interface for packages on npm.
-//
-// start server: npm start
-// build assets: npm run-script build.
 var restify = require('restify'),
   serverOpts = {},
   fs = require('fs');
 
-// Support running typeahead service with SSL.
 if (process.env.KEY) {
   serverOpts.key = fs.readFileSync(process.env.KEY);
   serverOpts.certificate = fs.readFileSync(process.env.CERTIFICATE);

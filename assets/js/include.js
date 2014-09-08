@@ -7,8 +7,20 @@ var skrollr = require('skrollr'),
 
 module.exports = function(opts) {
   $(document).ready(function() {
+    $('#bottom-info').show();
     skrollr.init();
+
+
   });
+
+  $('.item').hover(
+    function() {
+      $(this).children('.profile').show();
+    },
+    function() {
+      $(this).children('.profile').hide();
+    }
+  )
 };
 
 },{"jquery":3,"skrollr":4}],3:[function(require,module,exports){

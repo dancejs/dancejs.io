@@ -1,4 +1,5 @@
 body {
+  font-family: 'Open Sans Condensed', sans-serif;
   background-color: black;
   height: 100px;
 }
@@ -12,6 +13,7 @@ body {
   float: top;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 #logo {
@@ -56,8 +58,33 @@ body {
 
 #bottom-info {
   background-color: white;
-  margin: -250px;
+  position: relative;
+  padding-top: 20px;
+  top: -15px;
   height: 550px;
+  display: none;
+  text-align: center;
+}
+
+.profile {
+  width: 108;
+  height: 108;
+  background-color: white;
+  display: none;
+  position: relative;
+  font-size: 18px;
+}
+
+.social {
+  position: relative;
+  top: 56px;
+}
+
+.social a {
+  padding: 2px;
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
 }
 
 blockquote {
@@ -70,7 +97,7 @@ blockquote {
 }
 
 .js-masonry {
-  padding-top: 40px;
+  padding-top: 20px;
   width: 500px;
   margin: auto;
 }
