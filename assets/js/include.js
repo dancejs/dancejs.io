@@ -9,10 +9,7 @@ module.exports = function(opts) {
   $(document).ready(function() {
     // hide profile pics until layout complete.
     $('#bottom-info').show();
-
-    // nifty parallax scrolling lib.
-    //skrollr.init();
-
+    
     // code of conduct message.
     $('#conduct').click(function() {
       vex.dialog.confirm({
