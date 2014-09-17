@@ -17,13 +17,13 @@ body {
 #logo {
   background-image: url('../images/logo-white.svg');
   background-color: white;
-  background-size: 115px 115px;
+  background-size: 135px 135px;
   background-repeat: no-repeat;
   position: relative;
   top: 60px;
-  height: 100px;
+  height: 128px;
   width: 250px;
-  padding-left: 120px;
+  padding-left: 140px;
   padding-top: 8px;
   margin-left: -5px;
 }
@@ -51,7 +51,7 @@ body {
   background-color: black;
   height: 150px;
   position: relative;
-  top: 320px;
+  top: 290px;
 }
 
 #bottom-info {
