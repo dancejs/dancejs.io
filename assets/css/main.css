@@ -176,3 +176,11 @@ The buy tickets button.
   text-align: center;
   margin-top: 200px;
 }
+
+.sponsors img {
+  padding: 10px;
+}
+
+.sponsors a {
+  text-decoration: none;
+}
