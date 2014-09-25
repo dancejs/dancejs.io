@@ -18,13 +18,13 @@ body {
   padding: 20px;
 }
 
-section#splash {
+#splash {
   height: 100%;
   width: 100%;
   position: relative;
 }
 
-section#splash .container {
+#splash .container {
   max-width: 1000px;
   margin: 0;
   position: absolute;
@@ -34,12 +34,12 @@ section#splash .container {
   text-align: center;
 }
 
-section#splash p {
+#splash p {
   color: white;
   opacity: 0.6;
 }
 
-section#splash p a {
+#splash p a {
   color: #FFFFFF;
   text-decoration: underline;
 }
@@ -60,12 +60,12 @@ a.button {
   text-transform: uppercase;
 }
 
-section#splash img {
+#splash img {
   max-width: 300px;
   display: inline-block;
 }
 
-section#splash h1 {
+#splash h1 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 100px;
@@ -74,7 +74,7 @@ section#splash h1 {
   padding: 0;
 }
 
-section#splash h2 {
+#splash h2 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 32px;
@@ -241,8 +241,29 @@ p.twitterz a {
 
 
 @media (max-width: 600px) {
+
   html {
     background: black;
+  }
+
+  #splash {
+    height: 800px;
+    width: auto;
+    position: relative;
+  }
+
+  #splash .container {
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+  }
+  
+  #splash img {
+    max-width: 80%;
+  }
+
+  #splash h1 {
+    font-size: 50px;
   }
 
   .performer img {
