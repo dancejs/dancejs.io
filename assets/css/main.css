@@ -253,7 +253,6 @@ p.twitterz a {
   }
 
   #splash .container {
-    /*background: yellow;*/
     max-width: auto;
     width: 100%;
     position: relative;
@@ -262,24 +261,7 @@ p.twitterz a {
     top: 0;
     left: 0;
   }
-
-  /*#splash {
-    height: 100%;
-    width: 100%;
-    position: relative;
-  }
-
-  #splash .container {
-    max-width: 1000px;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }*/
-
-
+  
   #splash img {
     max-width: 80%;
   }
