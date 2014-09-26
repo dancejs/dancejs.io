@@ -2,11 +2,6 @@
   "name": "dancejs.io",
   "version": "1.0.0",
   "description": "Website for DanceJS.",
-  "main": "./lib/index.js",
-  "browser": "./lib/browser.js",
-  "scripts": {
-    "prestart": "./node_modules/.bin/browserify assets/js/main.js > assets/js/include.js | uglifyjs"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bcoe/dancejs.io.git"
@@ -24,9 +19,6 @@
   },
   "homepage": "https://github.com/bcoe/dancejs.io",
   "dependencies": {
-    "browserify": "^5.11.1",
-    "jquery": "^2.1.1",
-    "restify": "^2.8.2",
-    "uglify-js": "^2.4.15"
+    "restify": "^2.8.2"
   }
 }

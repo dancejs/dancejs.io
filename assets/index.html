@@ -1,312 +1,302 @@
 <html>
   <head>
     <title>DanceJS: a nerdy dance party for the masses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:700,600,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/vex.css" />
-    <link rel="stylesheet" href="./css/vex-theme-os.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ICanHaz.js/0.10.3/ICanHaz.min.js"></script>
+
+  <script id="performer" type="text/html">
+    <div class="performer person">
+      <img src="/images/profiles/{{image}}" />
+      <div class="profile">
+        <h3>{{name}}</h3>
+
+        <p>{{{talk}}}</p>
+
+        {{#track}}
+          <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{track}}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
+        {{/track}}
+      </div>
+
+      <div class="social">
+        {{#twitter}}
+          <a class="fa fa-twitter" href="https://twitter.com/{{twitter}}"></a>
+        {{/twitter}}
+
+        {{#github}}
+          <a class="fa fa-github" href="https://github.com/{{github}}"></a>
+        {{/github}}
+
+        {{#soundcloud}}
+          <a class="fa fa-soundcloud" href="https://soundcloud.com/{{soundcloud}}"></a>
+        {{/soundcloud}}
+      </div>
+
+
+    </div>
+  </script>
+
+    <script id="organizer" type="text/html">
+      <div class="organizer person">
+
+        {{#twitter}}
+          <a href="https://twitter.com/{{twitter}}"><img src="/images/profiles/{{image}}" /></a>
+        {{/twitter}}
+
+        {{^twitter}}
+          <img src="/images/profiles/{{image}}" />
+        {{/twitter}}
+
+        <div class="profile">
+          <h3>{{name}}</h3>
+          <div class="social">
+            {{#twitter}}
+              <a class="fa fa-twitter" href="https://twitter.com/{{twitter}}"></a>
+            {{/twitter}}
+
+            {{#github}}
+              <a class="fa fa-github" href="https://github.com/{{github}}"></a>
+            {{/github}}
+
+            {{#soundcloud}}
+              <a class="fa fa-soundcloud" href="https://soundcloud.com/{{soundcloud}}"></a>
+            {{/soundcloud}}
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script charset="utf-8">
+      window.people = [{
+        name: "Emily Rose",
+        twitter: "nexxylove",
+        github: "nexxy",
+        image: "nexxy.jpeg",
+        talk: "Emily Rose will be giving a talk on the Node.js-powered instrument the <a href=\"https://github.com/nexxy/cerulean\" target=\"_blank\">cerulean</a>, which she debuted at Nordic.js. The cerulean is modeled after the samchillian, <a href=\"https://www.youtube.com/watch?v=DbOIBIwg_E4\" target=\"_blank\">a musical instrument based on relativity.</a>"
+      }, {
+        name: "Benjamin Coe",
+        twitter: "benjamincoe",
+        github: "bcoe",
+        soundcloud: "benjamin-e-coe",
+        image: "ben.png",
+        track: "168397280",
+        talk: "The second performer of the night will be npm's very own Benjamin Coe. His musical tastes are eclectic, spanning house, disco, techno, and whatever else is bouncing around in his head. His prime directive is to get people dancing."
+      }, {
+        name: "Myles Borins",
+        twitter: "The_Alpha_Nerd",
+        github: "TheAlphaNerd",
+        soundcloud: "thealphanerd",
+        image: "myles.jpeg",
+        track: "134658672",
+        talk: "Myles Borins, who holds a master's of music science at c.c.r.m.a., will be the headliner for the evening. Playing an eclectic mix of music, spanning whatever it takes to get the crowd moving."
+      }, {
+        name: "Gabe Silk",
+        twitter: "gabrielsilk",
+        soundcloud: "gsilk",
+        image: "gabe.jpeg",
+        track: "168505847",
+        talk: "Gabe Silk will be giving a talk about creating an audio-mixer in Node.js using native PCM bindings (<a href=\"https://www.youtube.com/watch?v=mK16jgOt5lQ\" target=\"_blank\">a JSON powered mixer in action</a>). Gabe will be closing out his talk with the first set of the night"
+      }, {
+        name: "Mikeal Rogers",
+        twitter: "mikeal",
+        github: "mikeal",
+        soundcloud: "mikealrogers",
+        image: "mikeal.jpeg"
+      }, {
+        name: "Adam Ulvi",
+        twitter: "s5fs",
+        github: "aulvi",
+        image: "adam.png"
+      }, {
+        name: "Forrest L Norvell",
+        twitter: "othiym23",
+        github: "othiym23",
+        image: "forrest.png"
+      }, {
+        name: "James Halliday",
+        twitter: "substack",
+        github: "substack",
+        soundcloud: "substack",
+        image: "substack.jpeg"
+      }, {
+        name: "JOHNNY (NHQ)",
+        github: "NHQ",
+        soundcloud: "johnnyscript",
+        image: "johnny.png",
+        track: "135246646",
+        talk: "Closing out the night with an experimental electronic set, will be the venerable JOHNNY."
+      }, {
+        name: "Lin Clark",
+        twitter: "linclark",
+        github: "linclark",
+        image: "lin.png"
+      }, {
+        name: "Ben Michel",
+        twitter: "obensource",
+        github: "obensource",
+        soundcloud: "benmichelmusic",
+        image: "benm.jpeg"
+      }, {
+        name: "Dan Shaw",
+        twitter: "dshaw",
+        github: "dshaw",
+        image: "dan.jpeg"
+      }, {
+        name: "Zeke Sikelianos",
+        twitter: "zeke",
+        github: "zeke",
+        image: "zeke.jpeg"
+      }]
+
+      $(function () {
+
+        people.forEach(function(person) {
+          $('#organizers-container').append(ich.organizer(person));
+
+          if (person.talk) {
+            $('#performers-container').append(ich.performer(person));
+          }
+        })
+
+      })
+    </script>
+
   </head>
   <body>
 
-    <div id="background">
-      <div id="logo">
-        <div class="large-title">DanceJS</div>
-        <div class="date">Saturday Oct 4th, 6:45PM - 11:30PM</div>
-        <div class="date">477 25th Street, Oakland CA</div>
-        <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" class="tickets" target="_blank">Buy your tickets</a>
+    <section id="splash">
+      <div class="container">
+        <a href="https://twitter.com/oaklanddancejs">
+          <img src="images/logo-white.svg" />
+        </a>
+        <h1>DanceJS</h1>
+        <h2>a nerdy dance party for the masses</h2>
+        <p>Saturday Oct 4th 2014, 6:45PM-11:30PM</p>
+        <p>
+          <a href="http://goo.gl/maps/Zu21t">25th St Collective</a>, Oakland CA
+        </p>
+        <!-- <p>
+          Only 150 tickets are available for this event.
+        </p> -->
+        <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" class="button">TICKETS ARE ONLY FIVE BUCKS. GET YOURS NOW.</a>
       </div>
-      <div id="action-item">
-        <div>
-          <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" target="_blank" class="buy-tickets">RSVP for your chance to attend</a>
-        </div>
-        Only 150 tickets are available for this unique event.
-      </div>
-      <div id="mission" data-0="opacity: 1;" data-600="opacity: 1.0">
-        <blockquote>
+    </section>
+
+
+    <section id="mission">
+      <div class="content">
+        <p>
           DanceJS is a unique speaker series that aims to foster
           a community around audio-hacking and dance music. We hope to encourage unbridled creativity
           in the Bay Area. The first DanceJS is being held in
           Oakland on October 4th. Come join us for intriguing talks,
-          and a killer dance-party. The first event is being held at the <a href="http://25thstreetcollective.com/" target="_blank">25th Street Collective</a> in Oakland.
-        </blockquote>
+          and a killer dance-party. The first event is being held at the <a href="http://25thstreetcollective.com/">25th Street Collective</a> in Oakland.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <script src="./js/masonry.min.js" type="text/javascript"></script>
 
-    <div id="bottom-info">
-      <h2>Speakers/Performers:</h2>
-
-      <div class="js-masonry"
-        data-masonry-options='{ "itemSelector": ".item", "columnWidth": 120 }'>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/nexxy.jpeg');" class="item">
-            <div class="profile">
-              Emily Rose
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/nexxylove" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/nexxy" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width:350; height: 108; margin: 5px;" class="item">
-            <p>Emily Rose will be giving a talk on the Node.js-powered instrument the <a href="https://github.com/nexxy/cerulean" target="_blank">cerulean</a>, which she debuted at Nordic.js. The cerulean is modeled after the samchillian, <a href="https://www.youtube.com/watch?v=DbOIBIwg_E4" target="_blank">a musical instrument based on relativity.</a></p>
-          </div>
-
-          <!-- spacer !-->
-          <div style="width: 450px; height: 50px;" class="item"></div>
-
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/gabe.jpeg');" class="item">
-            <div class="profile">
-              Gabe Silk
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/gsilk" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/gsilk" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width:350; height: 138; margin: 5px;" class="item">
-            <p>Gabe Silk will be giving a talk about creating an audio-mixer in Node.js using native PCM bindings (<a href="https://www.youtube.com/watch?v=mK16jgOt5lQ" target="_blank">a JSON powered mixer in action</a>). Gabe will be closing out his talk with the first set of the night:</p>
-            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/168505847&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-          </div>
-
-          <!-- spacer !-->
-          <div style="width: 450px; height: 50px;" class="item"></div>
-
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/ben.png');" class="item">
-            <div class="profile">
-              Benjamin Coe
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/bcoe" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/benjamin-e-coe" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width:350; height: 138; margin: 5px;" class="item">
-            <p>The second performer of the night will be npm's very own Benjamin Coe. His musical tastes are eclectic, spanning house, disco, techno, and whatever else is bouncing around in his head. His prime directive is to get people dancing.</p>
-            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/168397280&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-          </div>
-
-          <!-- spacer !-->
-          <div style="width: 450px; height: 50px;" class="item"></div>
-
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/myles.jpeg');" class="item">
-            <div class="profile">
-              Myles Borins
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/The_Alpha_Nerd" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/TheAlphaNerd" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/thealphanerd" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width:350; height: 138; margin: 5px;" class="item">
-            <p>Myles Borins, who holds a master's of music science at c.c.r.m.a., will be the headliner for the evening. Playing an eclectic mix of music, spanning whatever it takes to get the crowd moving.</p>
-            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/134658672&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-          </div>
-
-          <div style="width: 450px; height: 50px;" class="item"></div>
-
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/johnny.png');" class="item">
-            <div class="profile">
-              JOHNNY
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/NHQ" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/johnnyscript" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width:350; height: 138; margin: 5px;" class="item">
-            <p>Closing out the night with an experimental electronic set, will be the venerable JOHNNY.</p>
-            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/135246646&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
-          </div>
+    <section id="performers">
+      <div class="content">
+        <h2>Performers</h2>
+        <div id="performers-container" class="people-container"></div>
       </div>
+    </section>
 
-      <!-- spacer !-->
-      <div style="width: 450px; height: 50px;" class="item"></div>
-
-      <h2>Organizers:</h2>
-      <div class="js-masonry"
-        data-masonry-options='{ "itemSelector": ".item", "columnWidth": 120 }'>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/nexxy.jpeg');" class="item">
-            <div class="profile">
-              Emily Rose
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/nexxylove" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/nexxy" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/ben.png');" class="item">
-            <div class="profile">
-              Benjamin Coe
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/bcoe" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/benjamin-e-coe" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/myles.jpeg');" class="item">
-            <div class="profile">
-              Myles Borins
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/The_Alpha_Nerd" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/TheAlphaNerd" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/thealphanerd" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/gabe.jpeg');" class="item">
-            <div class="profile">
-              Gabe Silk
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/gsilk" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/gsilk" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/mikeal.jpeg');" class="item">
-            <div class="profile">
-              Mikeal Rogers
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/mikeal" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/mikeal" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/mikealrogers" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/adam.png');" class="item">
-            <div class="profile">
-              Adam Ulvi
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/s5fs" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/aulvi" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/forrest.png');" class="item">
-            <div class="profile">
-              Forrest L Norvell
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/othiym23" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/othiym23" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/substack.jpeg');" class="item">
-            <div class="profile">
-              James Halliday
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/substack" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/substack" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/substack" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/johnny.png');" class="item">
-            <div class="profile">
-              JOHNNY (NHQ)
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/NHQ" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/lin.png');" class="item">
-            <div class="profile">
-              Lin Clark
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/linclark" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/linclark" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/benm.jpeg');" class="item">
-            <div class="profile">
-              Ben Michel
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/obensource" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/obensource" target="_blank"></a>
-                <a class="fa fa-soundcloud" href="https://soundcloud.com/benmichelmusic" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/dan.jpeg');" class="item">
-            <div class="profile">
-              Dan Shaw
-              <div class="social">
-                <a class="fa fa-twitter" href="https://twitter.com/dshaw" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/dshaw" target="_blank"></a>
-              </div>
-            </div>
-          </div>
-          <div style="width: 108; height: 108; margin: 5px; background-image: url('./images/profiles/aaron.jpeg');" class="item">
-            <div class="profile">
-              Aaron Murray
-              <div class="social">
-                <a class="fa fa-github" href="https://github.com/funkytek" target="_blank"></a>
-              </div>
-            </div>
-          </div>
+    <section id="organizers">
+      <div class="content">
+        <h2>Organizers</h2>
+        <div id="organizers-container" class="people-container"></div>
       </div>
+    </section>
 
-      <div id="bottom-bar">
-        <a href="https://twitter.com/oaklanddancejs" target="_blank">@oaklanddancejs</a><a class="fa fa-hand-o-up"></a>
-        <a id="conduct" href="#footer">Code of Conduct</a><a class="fa fa-hand-o-right"></a>
-        <a id="sponsors" href="#footer">Sponsors</a>
-      </div>
-    </div>
-
-    <a name="footer"></a>
-
-    <!-- dialog content -->
-    <div style="display: none;" id="conduct-content">
+    <section id="conduct">
       <div class="content">
         <h2>Conference Code of Conduct</h2>
 
-          <p>All attendees, speakers, sponsors and volunteers at our conference are required to agree with the following code of conduct. Organisers will enforce this code throughout the event. We are expecting cooperation from all participants to help ensuring a safe environment for everybody.</p>
+        <p>All attendees, performers, sponsors and volunteers at our conference are
+        required to agree with the following code of conduct. Organisers will
+        enforce this code throughout the event. We are expecting cooperation from
+        all participants to help ensuring a safe environment for everybody.</p>
 
-          <p><em>tl;dr: Don't be a jerk</em></p>
+        <p><em>tl;dr: Don't be a jerk</em></p>
 
-          <h3>Need Help?</h3>
+        <h3>Need Help?</h3>
 
-          <p>Ben Coe <a href="tel:1-415-314-7891">1-415-314-789</a>
-          <a href="mailto:ben@npmjs.com">
-          ben@npmjs.com</a></p>
+        <p>Ben Coe <a href="tel:1-415-314-7891">1-415-314-789</a> <a
+        href="mailto:ben@npmjs.com"> ben@npmjs.com</a></p>
 
-          <h3>The Quick Version</h3>
+        <h3>The Quick Version</h3>
 
-          <p>Our conference is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, age, sexual orientation, disability, physical appearance, body size, race, or religion (or lack thereof). We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, Twitter and other online media. Conference participants violating these rules may be sanctioned or expelled from the conference <em>without a refund</em> at the discretion of the conference organisers.</p>
+        <p>Our conference is dedicated to providing a harassment-free conference
+        experience for everyone, regardless of gender, age, sexual orientation,
+        disability, physical appearance, body size, race, or religion (or lack
+        thereof). We do not tolerate harassment of conference participants in any
+        form. Sexual language and imagery is not appropriate for any conference
+        venue, including talks, workshops, parties, Twitter and other online media.
+        Conference participants violating these rules may be sanctioned or expelled
+        from the conference <em>without a refund</em> at the discretion of the
+        conference organisers.</p>
 
-          <h3>The Less Quick Version</h3>
+        <h3>The Less Quick Version</h3>
 
-          <p>Harassment includes offensive verbal comments related to gender, age, sexual orientation, disability, physical appearance, body size, race, religion, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.</p>
+        <p>Harassment includes offensive verbal comments related to gender, age,
+        sexual orientation, disability, physical appearance, body size, race,
+        religion, sexual images in public spaces, deliberate intimidation, stalking,
+        following, harassing photography or recording, sustained disruption of talks
+        or other events, inappropriate physical contact, and unwelcome sexual
+        attention.</p>
 
-          <p>Participants asked to stop any harassing behavior are expected to comply immediately.</p>
+        <p>Participants asked to stop any harassing behavior are expected to comply
+        immediately.</p>
 
-          <p>Sponsors are also subject to the anti-harassment policy. In particular, sponsors should not use sexualised images, activities, or other material. Booth staff (including volunteers) should not use sexualised clothing/uniforms/costumes, or otherwise create a sexualised environment.</p>
+        <p>Sponsors are also subject to the anti-harassment policy. In particular,
+        sponsors should not use sexualised images, activities, or other material.
+        Booth staff (including volunteers) should not use sexualised
+        clothing/uniforms/costumes, or otherwise create a sexualised
+        environment.</p>
 
-          <p>If a participant engages in harassing behavior, the conference organisers may take any action they deem appropriate, including warning the offender or expulsion from the conference with no refund.</p>
+        <p>If a participant engages in harassing behavior, the conference
+        organisers may take any action they deem appropriate, including warning the
+        offender or expulsion from the conference with no refund.</p>
 
-          <p>If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of conference staff immediately. Conference staff can be identified as they&#39;ll be wearing branded t-shirts.</p>
+        <p>If you are being harassed, notice that someone else is being harassed,
+        or have any other concerns, please contact a member of conference staff
+        immediately. Conference staff can be identified as they&#39;ll be wearing
+        branded t-shirts.</p>
 
-          <p>Conference staff will be happy to help participants contact hotel/venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.</p>
+        <p>Conference staff will be happy to help participants contact hotel/venue
+        security or local law enforcement, provide escorts, or otherwise assist
+        those experiencing harassment to feel safe for the duration of the
+        conference. We value your attendance.</p>
 
-          <p>We expect participants to follow these rules at conference and workshop venues and conference-related social events.</p>
+        <p>We expect participants to follow these rules at conference and workshop
+        venues and conference-related social events.</p>
       </div>
-    </div>
+    </section>
 
-    <div style="display: none;" id="sponsors-content">
-      <div class="content sponsors">
+    <section id="sponsors">
+      <div class="content">
         <h2>Sponsors</h2>
-        <a href="https://www.digitalocean.com/" target="_blank"><img src="./images/logos/do.png" /></a>
-        <a href="https://npmjs.org" target="_blank"><img src="./images/logos/npm.png" width="200" /></a>
+        <a href="https://www.digitalocean.com/"><img src="./images/logos/do.png" class="do"/></a>
+        <a href="https://npmjs.org"><img src="./images/logos/npm.png" class="npm" /></a>
       </div>
-    </div>
+    </section>
 
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/include.js" type="text/javascript"></script>
-    <script src="./js/vex.combined.min.js"></script>
-    <script>vex.defaultOptions.className = 'vex-theme-os';</script>
+    <section id="footer">
+      <div class="content">
+        <p>
+          <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" class="button">Tickets are only five bucks. Get yours now.</a>
+        </p>
+        <p class="twitterz">
+          Follow <a href="https://twitter.com/oaklanddancejs">@oaklanddancejs</a>
+        </p>
+      </div>
+    </section>
+
   </body>
 </html>
