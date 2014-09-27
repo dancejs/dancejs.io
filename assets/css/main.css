@@ -117,6 +117,17 @@ section h2 {
   max-width: 240px;
 }
 
+#sponsors img.rdio {
+  display: inline-block;
+  max-width: 240px;
+}
+
+#sponsors span.attribution {
+  display: inline-block;
+  width: 10%px;
+  margin: 10px;
+}
+
 /* Footer */
 /* ------------------------------------------------------- */
 
@@ -261,7 +272,7 @@ p.twitterz a {
     top: 0;
     left: 0;
   }
-  
+
   #splash img {
     max-width: 80%;
   }
