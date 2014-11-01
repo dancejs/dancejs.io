@@ -15,6 +15,12 @@ server.get(/\/js|css|images\/?.*/, restify.serveStatic({
   directory: './assets'
 }));
 
+// past events.
+server.get(/\/2014\/10\/04\/?/, restify.serveStatic({
+  directory: './assets',
+  default: 'index.html'
+}));
+
 // serve the static index page.
 server.get(/\/?/, restify.serveStatic({
   directory: './assets',

@@ -71,21 +71,12 @@
     </script>
 
     <script charset="utf-8">
-      window.people = [
-      {
-        name: "Kasima Tharnpipitchai",
-        twitter: "kasima",
-        github: "kasima",
-        track: "161567024",
-        talk: "Kasima, along with the other members of the <a href=\"https://www.kickstarter.com/projects/764304211/anitas-dropship\" target=\"_blank\">Anita's Dropship Kickstarter project</a>, will be giving a talk and interactive demonstration of the Dropship itself.",
-        image: '/dropship/kasima.jpeg'
-      },
-      {
+      window.people = [{
         name: "Emily Rose",
         twitter: "nexxylove",
         github: "nexxy",
         image: "nexxy.jpeg",
-        organizer: true
+        talk: "Emily Rose will be giving a talk on the Node.js-powered instrument the <a href=\"https://github.com/nexxy/cerulean\" target=\"_blank\">cerulean</a>, which she debuted at Nordic.js. The cerulean is modeled after the samchillian, <a href=\"https://www.youtube.com/watch?v=DbOIBIwg_E4\" target=\"_blank\">a musical instrument based on relativity.</a>"
       }, {
         name: "Benjamin Coe",
         twitter: "benjamincoe",
@@ -93,7 +84,7 @@
         soundcloud: "benjamin-e-coe",
         image: "ben.png",
         track: "168397280",
-        organizer: true
+        talk: "The second performer of the night will be npm's very own Benjamin Coe. His musical tastes are eclectic, spanning house, disco, techno, and whatever else is bouncing around in his head. His prime directive is to get people dancing."
       }, {
         name: "Myles Borins",
         twitter: "The_Alpha_Nerd",
@@ -101,81 +92,70 @@
         soundcloud: "thealphanerd",
         image: "myles.jpeg",
         track: "134658672",
-        organizer: true
+        talk: "Myles Borins, who holds a master's of music science at c.c.r.m.a., will be the headliner for the evening. Playing an eclectic mix of music, spanning whatever it takes to get the crowd moving."
       }, {
         name: "Gabe Silk",
         twitter: "gabrielsilk",
         soundcloud: "gsilk",
         image: "gabe.jpeg",
         track: "168505847",
-        talk: "Gabe will be giving a talk on generative music production, leading into the first performance of the night a live-coded DJ set.",
-        organizer: true
+        talk: "Gabe Silk will be giving a talk about creating an audio-mixer in Node.js using native PCM bindings (<a href=\"https://www.youtube.com/watch?v=mK16jgOt5lQ\" target=\"_blank\">a JSON powered mixer in action</a>). Gabe will be closing out his talk with the first set of the night"
       }, {
         name: "Mikeal Rogers",
         twitter: "mikeal",
         github: "mikeal",
         soundcloud: "mikealrogers",
-        image: "mikeal.jpeg",
-        organizer: true
+        image: "mikeal.jpeg"
       }, {
         name: "Adam Ulvi",
         twitter: "s5fs",
         github: "aulvi",
-        image: "adam.png",
-        organizer: true
+        image: "adam.png"
       }, {
         name: "Forrest L Norvell",
         twitter: "othiym23",
         github: "othiym23",
-        image: "forrest.png",
-        organizer: true
+        image: "forrest.png"
       }, {
         name: "James Halliday",
         twitter: "substack",
         github: "substack",
         soundcloud: "substack",
-        image: "substack.jpeg",
-        organizer: true
+        image: "substack.jpeg"
       }, {
         name: "JOHNNY (NHQ)",
         github: "NHQ",
         soundcloud: "johnnyscript",
         image: "johnny.png",
         track: "135246646",
-        organizer: true
+        talk: "Closing out the night with an experimental electronic set, will be the venerable JOHNNY."
       }, {
         name: "Lin Clark",
         twitter: "linclark",
         github: "linclark",
-        image: "lin.png",
-        organizer: true
+        image: "lin.png"
       }, {
         name: "Ben Michel",
         twitter: "obensource",
         github: "obensource",
         soundcloud: "benmichelmusic",
-        image: "benm.jpeg",
-        organizer: true
+        image: "benm.jpeg"
       }, {
         name: "Dan Shaw",
         twitter: "dshaw",
         github: "dshaw",
-        image: "dan.jpeg",
-        organizer: true
+        image: "dan.jpeg"
       }, {
         name: "Zeke Sikelianos",
         twitter: "zeke",
         github: "zeke",
-        image: "zeke.jpeg",
-        organizer: true
+        image: "zeke.jpeg"
       }]
 
       $(function () {
 
         people.forEach(function(person) {
-          if (person.organizer) {
-            $('#organizers-container').append(ich.organizer(person));
-          }
+          $('#organizers-container').append(ich.organizer(person));
 
           if (person.talk) {
             $('#performers-container').append(ich.performer(person));
@@ -195,11 +175,14 @@
         </a>
         <h1>DanceJS</h1>
         <h2>a nerdy dance party for the masses</h2>
-        <p>Saturday Dec 13th 2014, 6:45PM-11:30PM</p>
+        <p>Saturday Oct 4th 2014, 6:45PM-11:30PM</p>
         <p>
           <a href="http://goo.gl/maps/Zu21t">25th St Collective</a>, Oakland CA
         </p>
-        <a href="http://oakland.jsfest.com/" class="button">Part of JSFest Oakland, get your tickets</a>
+        <!-- <p>
+          Only 150 tickets are available for this event.
+        </p> -->
+        <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" class="button">TICKETS ARE ONLY FIVE BUCKS. GET YOURS NOW.</a>
       </div>
     </section>
 
@@ -209,8 +192,9 @@
         <p>
           DanceJS is a unique speaker series that aims to foster
           a community around audio-hacking and dance music. We hope to encourage unbridled creativity
-          in the Bay Area. Come join us for intriguing talks,
-          and a <a href="https://www.dropbox.com/sh/rysgf68oe0aq7bi/AACxsaIEDJlK94xLZS-Remika?dl=0" target="_blank">killer dance-party</a>. The next event is being held as part of JSFest Oakland at the <a href="http://25thstreetcollective.com/">25th Street Collective</a>.
+          in the Bay Area. The first DanceJS is being held in
+          Oakland on October 4th. Come join us for intriguing talks,
+          and a killer dance-party. The first event is being held at the <a href="http://25thstreetcollective.com/">25th Street Collective</a> in Oakland.
         </p>
       </div>
     </section>
@@ -298,6 +282,9 @@
     <section id="sponsors">
       <div class="content">
         <h2>Sponsors</h2>
+        <a href="https://www.digitalocean.com/"><img src="/images/logos/do.png" class="do"/></a>
+        <a href="https://npmjs.org"><img src="/images/logos/npm.png" class="npm" /></a>
+        <a href="http://www.rdio.com/"><img src="/images/logos/rdio.png" class="rdio" /></a>
         <span class="attribution">Photograph is of Rave.js NodeConf 2014, courtesy of <a href="https://twitter.com/FotoVerite">Matthew Bergman</a></span>
       </div>
     </section>
@@ -305,7 +292,7 @@
     <section id="footer">
       <div class="content">
         <p>
-          <a href="http://oakland.jsfest.com/" class="button">Part of JSFest Oakland, get your tickets</a>
+          <a href="https://ti.to/dancejs/october-4th?release_id=gnpuvtek1lq" class="button">Tickets are only five bucks. Get yours now.</a>
         </p>
         <p class="twitterz">
           Follow <a href="https://twitter.com/oaklanddancejs">@oaklanddancejs</a>
