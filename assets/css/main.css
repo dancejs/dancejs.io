@@ -265,6 +265,10 @@ p.twitterz a {
   }
 
   #splash .container {
+    -webkit-transform: translate(0%, 0%);
+  }
+
+  #splash .container {
     max-width: auto;
     width: 100%;
     position: relative;
