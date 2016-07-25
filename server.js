@@ -28,6 +28,10 @@ server.get(/\/2015\/03\/28\/?/, restify.serveStatic({
   directory: './assets',
   default: 'index.html'
 }));
+server.get(/\/2015\/09\/25\/?/, restify.serveStatic({
+  directory: './assets',
+  default: 'index.html'
+}));
 
 // serve the static index page.
 server.get(/\/?/, restify.serveStatic({
