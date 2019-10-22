@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/bcoe/dancejs.io",
   "dependencies": {
-    "restify": "^2.8.2"
+    "restify": "^8.4.0"
   }
 }
